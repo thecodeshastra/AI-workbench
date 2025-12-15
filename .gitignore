@@ -1,0 +1,11 @@
+# LangGraph
+.langgraph_api/
+
+# envrionment files
+*.env
+
+# virtual environment
+.venv
+
+# python cache
+__pycache__

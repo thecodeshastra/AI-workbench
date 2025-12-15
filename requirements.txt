@@ -1,0 +1,6 @@
+dotenv
+requests
+google-generativeai
+openai
+anthropic
+huggingface_hub
