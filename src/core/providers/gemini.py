@@ -6,8 +6,8 @@ import os
 # google gemini module
 import google.generativeai as genai
 
-# stateless ai agent module
-from providers.base_provider import BaseProvider
+# interface module
+from interfaces.base_provider import BaseProvider
 
 
 class GeminiProvider(BaseProvider):

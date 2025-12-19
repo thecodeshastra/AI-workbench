@@ -1,0 +1,36 @@
+Meeting summary
+
+
+Quick recap
+Mahendra and Shubhra discussed migrating assets and shots to DNEG VFX for testing. They identified shot 50 as a suitable test case due to its complexity and variety of assets, including characters, vehicles, and vegetation. Shubhra agreed to publish the necessary assets, excluding those requiring rigging assistance. Mahendra planned to create a spreadsheet to track asset status and coordinate with team members for documentation tasks. They also briefly touched on the progress of lighting documentation, with Mahendra outlining a plan to split tasks among lighting techs for efficient progress.
+
+Next steps
+Mahendra: Open the selected shot file, list all assets, and create a tracking sheet with a status column for Shubhra to update.
+Mahendra: Notify Shubhra once the asset tracking sheet is created.
+Shubhra: Publish the character asset (and any assets without rigging) for the selected shot to the DNA VFX show.
+Mahendra: Ask relevant team members for help with rigging/exporting the character rig for the selected shot.
+Mahendra: Split current documentation tasks into 8 separate sheets/pages by section (overview, etc.) and assign one page to each lighting tech for documentation work.
+Summary
+DNEG Asset Migration Testing Plan
+Mahendra and Shubhra discussed migrating assets to DNEG VFX for testing in the production environment. They agreed to publish all assets, including caches, for a selected shot, and Mahendra planned to create a migration command for easier testing. Shubhra confirmed that all shots up to 60 had similar assets, and Mahendra could choose any one of these shots for the migration process.
+
+Character Assets and Volume Blocks
+Mahendra and Shubhra discussed character assets and volume blocks for shots 30 onwards, noting that the first two shots are evening scenes without golden boxes. They agreed to check the submission for play glass assets and confirmed that Shoko was included. Mahendra expressed satisfaction with option 15 and its complexity, while Shubhra emphasized the need for voice elements due to volume considerations.
+
+Project Setup and Asset Review
+Mahendra and Shubhra discussed the setup and assets for a project, including vegetation, vehicles, characters, and the environment. They reviewed the current progress, noting caching issues and the need for improvements. Mahendra expressed satisfaction with the setup and mentioned the potential for a complete assembly. They also touched on the number of assets and the possibility of creating a screenshot. Mahendra requested Shubhra's knowledge for animation-related tasks, as she had only done a basic layout so far.
+
+Testing Animation Layout Discussion
+Mahendra and Shubhra discussed the layout and animation for testing purposes, agreeing that detailed review wasn't necessary since they would only be using it for testing. Shubhra mentioned she could publish an animation if needed, and they briefly touched on new scan shots being transferred, including some from TGA, though assets were missing for the halfway sequence.
+
+Project Functionality and Components Discussion
+Shubhra and Mahendra discussed the functionality and components of a project involving plate match moves, LiDAR, and Helix shots, including a micro HDR processor and multiple camera angles. They confirmed that the environment was a plate setup and that LiDAR should work effectively. They also mentioned a shot involving a hovering robot, which Mahendra identified as being present in the project.
+
+Character Asset Design Discussion
+Shubhra and Mahendra discussed the use of multi-shot designs and HDRI for a character asset in a scene involving explosions. They agreed that the asset could be used for both shots, as it features the same character. Mahendra suggested using shot 1028 for testing, as it does not have signing and should be sufficient for their purposes.
+
+VFX Character Rigging Process Discussion
+Mahendra and Shubhra discussed the process of publishing and rigging characters for a VFX show. Mahendra agreed to create a spreadsheet listing all assets and their status, which Shubhra can update. They also briefly mentioned the lighting page, but no further details were provided.
+
+Documentation Task Distribution Plan
+Mahendra discussed the progress of documentation tasks with Shubhra. He explained that he had received feedback that the current work was satisfactory and outlined a plan to split tasks across 8 different pages. Mahendra also mentioned that he would assign specific pages to individual lighting techs, who would work on documentation for one or two days per week.

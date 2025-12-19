@@ -1,21 +1,28 @@
 """Provider factory module for AI agent"""
 
-# stateless ai agent modules
+# config module
 from config.settings import (
     PROVIDER,
     MODEL_NAME,
     TEMPERATURE,
     MAX_TOKENS,
+    TIMEOUT_SECONDS,
+    MAX_RETRIES,
+    RETRY_BACKOFF,
+    LITELLM_MAX_TOKENS,
 )
 
-from providers.mock_provider import MockProvider
-from providers.ollama import OllamaProvider
-from providers.gemini import GeminiProvider
-from providers.openai import OpenAIProvider
-from providers.anthropic import AnthropicProvider
-from providers.perplexity import PerplexityProvider
-from providers.huggingface import HuggingFaceProvider
+# providers module
+from core.providers.mock_provider import MockProvider
+from core.providers.ollama import OllamaProvider
+from core.providers.gemini import GeminiProvider
+from core.providers.openai import OpenAIProvider
+from core.providers.anthropic import AnthropicProvider
+from core.providers.perplexity import PerplexityProvider
+from core.providers.huggingface import HuggingFaceProvider
+from core.providers.litellm import LiteLLMProvider
 
+# core module
 from core.utils.logger import logger
 
 
@@ -30,6 +37,16 @@ def get_provider():
     """
 
     logger.info("Initializing provider: %s", PROVIDER)
+
+    if PROVIDER == "litellm":
+        return LiteLLMProvider(
+            MODEL_NAME,
+            TEMPERATURE,
+            LITELLM_MAX_TOKENS,
+            TIMEOUT_SECONDS,
+            MAX_RETRIES,
+            RETRY_BACKOFF,
+        )
 
     if PROVIDER == "mock":
         return MockProvider()

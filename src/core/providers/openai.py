@@ -1,36 +1,39 @@
-"""Anthropic provider module for AI agent"""
+"""OpenAI provider module for AI agent"""
 
-# anthropic module
-import anthropic
+# open ai module
+from openai import OpenAI
 
-# stateless ai agent modules
-from providers.base_provider import BaseProvider
+# interface module
+from interfaces.base_provider import BaseProvider
 
 
-class AnthropicProvider(BaseProvider):
+class OpenAIProvider(BaseProvider):
     """
-    Anthropic provider class.
+    OpenAI provider.
+
+    Args:
+        BaseProvider (BaseProvider): Base provider class.
     """
 
     def __init__(
         self, model_name: str, temperature: float = 0.2, max_tokens: int = 500
     ):
         """
-        Initialize the Anthropic provider.
+        Initialize the OpenAI provider.
 
         Args:
             model_name (str): The model name.
             temperature (float, optional): The temperature. Defaults to 0.2.
             max_tokens (int, optional): The maximum number of tokens. Defaults to 500.
         """
-        self.client = anthropic.Anthropic()
+        self.client = OpenAI()
         self.model = model_name
         self.temperature = temperature
         self.max_tokens = max_tokens
 
     def generate(self, prompt: str) -> str:
         """
-        Generate a response using the Anthropic provider.
+        Generate a response using the OpenAI provider.
 
         Args:
             prompt (str): The input prompt.
@@ -38,10 +41,10 @@ class AnthropicProvider(BaseProvider):
         Returns:
             str: The generated response.
         """
-        response = self.client.messages.create(
+        response = self.client.responses.create(
             model=self.model,
-            messages=[{"role": "user", "content": prompt}],
+            input=prompt,
             temperature=self.temperature,
-            max_tokens=self.max_tokens,
+            max_output_tokens=self.max_tokens,
         )
-        return response.content[0].text
+        return response.output_text

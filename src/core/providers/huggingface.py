@@ -3,8 +3,8 @@
 # hugging face module
 from huggingface_hub import InferenceClient
 
-# stateless agent module
-from providers.base_provider import BaseProvider
+# interface module
+from interfaces.base_provider import BaseProvider
 
 
 class HuggingFaceProvider(BaseProvider):

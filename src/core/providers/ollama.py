@@ -3,8 +3,8 @@
 # request module
 import requests
 
-# stateless agent module
-from providers.base_provider import BaseProvider
+# interface module
+from interfaces.base_provider import BaseProvider
 
 
 class OllamaProvider(BaseProvider):

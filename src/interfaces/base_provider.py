@@ -1,4 +1,7 @@
-"""Base provider module for AI agent"""
+"""Base provider interface for AI agent"""
+
+# asyncio module
+import asyncio
 
 # abc module
 from abc import ABC, abstractmethod
@@ -24,3 +27,15 @@ class BaseProvider(ABC):
             str: The generated response.
         """
         pass
+
+    async def generate_async(self, prompt: str) -> str:
+        """
+        Default async wrapper for sync providers.
+
+        Args:
+            prompt (str): The input prompt.
+
+        Returns:
+            str: The generated response.
+        """
+        return await asyncio.to_thread(self.generate, prompt)

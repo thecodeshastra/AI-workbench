@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 # stateless agent module
 from agents.stateless_agent.base_agent import StatelessAgent
-from provider_factory import get_provider
+from core.provider_factory import get_provider
 
 load_dotenv()
 

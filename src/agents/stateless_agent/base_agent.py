@@ -1,9 +1,13 @@
 """Agent that generates Python code based on user requests."""
 
+# interface module
+from interfaces.base_provider import BaseProvider
+
+# core module
+from core.utils.logger import logger
+
 # stateless agent module
 from .prompt import AGENT_PROMPT
-from providers.base_provider import BaseProvider
-from core.utils.logger import logger
 
 
 class StatelessAgent:

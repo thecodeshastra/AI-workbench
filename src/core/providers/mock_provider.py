@@ -1,7 +1,7 @@
 """Mock provider module for AI agent"""
 
-# stateless agent module
-from providers.base_provider import BaseProvider
+# interface module
+from interfaces.base_provider import BaseProvider
 
 
 class MockProvider(BaseProvider):

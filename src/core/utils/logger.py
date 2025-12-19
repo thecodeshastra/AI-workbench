@@ -1,5 +1,6 @@
-"""logger module for AI agent"""
+"""Logger module for AI agent"""
 
+# python module
 import logging
 
 logging.basicConfig(

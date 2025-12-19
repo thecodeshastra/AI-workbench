@@ -1,0 +1,5 @@
+*   Open the selected shot file (e.g., Shot 50), list all assets, and create a tracking sheet with a status column for Shubhra to update.
+*   Notify Shubhra once the asset tracking sheet is created.
+*   Publish the character asset (and any other assets not requiring rigging) for the selected shot to the DNA VFX show.
+*   Ask relevant team members for help with rigging/exporting the character rig for the selected shot.
+*   Split current documentation tasks into 8 separate sheets/pages by section and assign one page to each lighting tech for documentation work.
