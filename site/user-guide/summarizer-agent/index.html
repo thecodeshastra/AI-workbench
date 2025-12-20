@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>Summarizer Agent - Mahendra Pawar Agents Documentation</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../../assets/css/darcula-highlight.min.css">
+
+        <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../../assets/css/mkdocs.min.css">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">Mahendra Pawar Agents Documentation</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Home
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class=" active 
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#user-guide-collapse" aria-expanded="false">
+                    User Guide
+                </a>
+                <div class="collapse" id="user-guide-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../getting-started/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Getting Started
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../stateless-agent/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Stateless Agent
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Summarizer Agent
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#api-reference-collapse" aria-expanded="false">
+                    API Reference
+                </a>
+                <div class="collapse" id="api-reference-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../api-reference/stateless-agent/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Stateless Agent
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../api-reference/summarizer-agent/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Summarizer Agent
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../api-reference/core-modules/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Core Modules
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../stateless-agent/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="../../api-reference/stateless-agent/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="summarizer-agent-architecture-execution-flow">Summarizer Agent — Architecture &amp; Execution Flow</h1>
+<p>This document explains <strong>how the Summarizer Agent works from start to end</strong>, why each component exists, and how data flows through the system. This is meant as <strong>internal documentation + learning reference</strong>, not marketing material.</p>
+<hr />
+<h2 id="1-what-the-summarizer-agent-does">1. What the Summarizer Agent Does</h2>
+<p><strong>One-line definition:</strong></p>
+<blockquote>
+<p>The Summarizer Agent takes a user instruction involving a file, summarizes its contents, extracts actionable items, and saves the results using a structured, reliable execution flow.</p>
+</blockquote>
+<p>It demonstrates:</p>
+<ul>
+<li>Tool usage</li>
+<li>Planner–Executor architecture</li>
+<li>Async-safe execution</li>
+<li>Deterministic, non-hallucinatory behavior</li>
+</ul>
+<hr />
+<h2 id="2-high-level-architecture">2. High-Level Architecture</h2>
+<pre><code>User Input
+   ↓
+Agent (Orchestrator)
+   ↓
+Planner (LLM → JSON plan)
+   ↓
+Plan Validation
+   ↓
+Executor
+   ↓
+Tools (File → Summarize → Extract → Write)
+   ↓
+Context (shared state)
+</code></pre>
+<p>Each component has <strong>one responsibility only</strong>.</p>
+<hr />
+<h2 id="3-entry-point-user-agent">3. Entry Point (User → Agent)</h2>
+<h3 id="example-user-input">Example User Input</h3>
+<pre><code>/home/user/meeting.txt , summarize it, extract action items, and save actions to /home/user/actions.txt
+</code></pre>
+<p>This is the <strong>only free-form input</strong> in the system. Everything else becomes structured.</p>
+<hr />
+<h2 id="4-agent-role-orchestration-only">4. Agent Role (Orchestration Only)</h2>
+<p>The agent:</p>
+<ul>
+<li>Builds the planner prompt</li>
+<li>Calls the LLM via a provider</li>
+<li>Expects a strict JSON plan</li>
+<li>Validates the plan</li>
+<li>Passes the plan to the executor</li>
+</ul>
+<p>The agent:</p>
+<ul>
+<li>❌ does NOT summarize</li>
+<li>❌ does NOT call tools directly</li>
+<li>❌ does NOT reason about execution</li>
+</ul>
+<hr />
+<h2 id="5-planner-from-language-to-plan">5. Planner — From Language to Plan</h2>
+<h3 id="planner-responsibility">Planner Responsibility</h3>
+<blockquote>
+<p>Convert user intent into a <strong>deterministic execution plan</strong> using known tools.</p>
+</blockquote>
+<h3 id="example-planner-output">Example Planner Output</h3>
+<pre><code class="language-json">{
+  &quot;steps&quot;: [
+    { &quot;tool&quot;: &quot;file_read&quot;, &quot;input&quot;: { &quot;path&quot;: &quot;/home/user/meeting.txt&quot; } },
+    { &quot;tool&quot;: &quot;text_summarize&quot;, &quot;input&quot;: {} },
+    { &quot;tool&quot;: &quot;extract_actions&quot;, &quot;input&quot;: {} },
+    { &quot;tool&quot;: &quot;file_write&quot;, &quot;input&quot;: { &quot;path&quot;: &quot;/home/user/actions.txt&quot;, &quot;source&quot;: &quot;actions&quot; } }
+  ]
+}
+</code></pre>
+<p>The planner:</p>
+<ul>
+<li>Decides <strong>what to do</strong></li>
+<li>Does NOT execute anything</li>
+<li>Outputs JSON only</li>
+</ul>
+<hr />
+<h2 id="6-plan-validation-safety-gate">6. Plan Validation (Safety Gate)</h2>
+<p>Before execution:</p>
+<ul>
+<li>Ensure valid JSON</li>
+<li>Ensure <code>steps</code> exists</li>
+<li>Ensure tool names are registered</li>
+</ul>
+<p>If validation fails → execution stops immediately.</p>
+<p>This prevents hallucinated execution.</p>
+<hr />
+<h2 id="7-executor-turning-plan-into-action">7. Executor — Turning Plan into Action</h2>
+<p>The executor:</p>
+<ul>
+<li>Iterates over steps</li>
+<li>Calls tools in order</li>
+<li>Manages async execution</li>
+<li>Controls failures</li>
+<li>Writes and reads shared context</li>
+</ul>
+<p>The executor <strong>never reasons</strong> — it only executes.</p>
+<hr />
+<h2 id="8-context-shared-short-term-memory">8. Context — Shared Short-Term Memory</h2>
+<h3 id="what-context-is">What Context Is</h3>
+<p>A protected key–value store shared across tools during execution.</p>
+<h3 id="example-context-keys">Example Context Keys</h3>
+<ul>
+<li><code>text</code> → raw file contents</li>
+<li><code>summary</code> → summarized text</li>
+<li><code>actions</code> → extracted action items</li>
+</ul>
+<p>Context is async-safe and accessed via:</p>
+<pre><code class="language-python">await context.set(key, value)
+await context.get(key)
+</code></pre>
+<hr />
+<h2 id="9-tool-execution-step-by-step">9. Tool Execution (Step-by-Step)</h2>
+<h3 id="tool-1-file-read">Tool 1 — File Read</h3>
+<p><strong>Input:</strong></p>
+<pre><code class="language-json">{ &quot;path&quot;: &quot;/home/user/meeting.txt&quot; }
+</code></pre>
+<p><strong>Action:</strong></p>
+<ul>
+<li>Reads file</li>
+<li>Stores text in context</li>
+</ul>
+<hr />
+<h3 id="tool-2-text-summarize">Tool 2 — Text Summarize</h3>
+<p><strong>Input:</strong> none (reads from context)</p>
+<p><strong>Action:</strong></p>
+<ul>
+<li>Pulls <code>text</code> from context</li>
+<li>Calls LLM</li>
+<li>Stores <code>summary</code></li>
+</ul>
+<p>Why summarization first:</p>
+<ul>
+<li>Reduces token size</li>
+<li>Improves extraction accuracy</li>
+<li>Lowers cost</li>
+</ul>
+<hr />
+<h3 id="tool-3-extract-actions">Tool 3 — Extract Actions</h3>
+<p><strong>Input:</strong> none (uses summary)</p>
+<p><strong>Action:</strong></p>
+<ul>
+<li>Extracts actionable items</li>
+<li>Stores <code>actions</code></li>
+</ul>
+<p>This avoids noisy raw-text extraction.</p>
+<hr />
+<h3 id="tool-4-file-write">Tool 4 — File Write</h3>
+<p><strong>Input:</strong></p>
+<pre><code class="language-json">{ &quot;path&quot;: &quot;/home/user/actions.txt&quot;, &quot;source&quot;: &quot;actions&quot; }
+</code></pre>
+<p><strong>Action:</strong></p>
+<ul>
+<li>Pulls <code>actions</code> from context</li>
+<li>Writes to disk</li>
+</ul>
+<p>Tool does not know how actions were created.</p>
+<hr />
+<h2 id="10-async-execution-where-it-fits">10. Async Execution (Where It Fits)</h2>
+<p>Async is used for:</p>
+<ul>
+<li>LLM calls (summarization, extraction)</li>
+<li>Non-blocking execution</li>
+</ul>
+<p>Async is <strong>not</strong> used for:</p>
+<ul>
+<li>Planning</li>
+<li>Context logic</li>
+</ul>
+<p>Shared context is protected to prevent race conditions.</p>
+<hr />
+<h2 id="11-final-output">11. Final Output</h2>
+<p>After execution:</p>
+<ul>
+<li>Summary is printed to console</li>
+<li>Action items are printed</li>
+<li>Actions file is saved</li>
+</ul>
+<p>No post-hoc parsing or guessing is needed.</p>
+<hr />
+<h2 id="12-why-this-design-is-correct">12. Why This Design Is Correct</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent</td>
+<td>Orchestration</td>
+</tr>
+<tr>
+<td>Planner</td>
+<td>Decide steps</td>
+</tr>
+<tr>
+<td>Executor</td>
+<td>Run steps</td>
+</tr>
+<tr>
+<td>Tools</td>
+<td>Single task</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>Shared state</td>
+</tr>
+<tr>
+<td>Provider</td>
+<td>LLM communication</td>
+</tr>
+</tbody>
+</table>
+<p>No component overlaps responsibility.</p>
+<hr />
+<h2 id="13-summary">13. Summary</h2>
+<p>The Summarizer Agent is:</p>
+<ul>
+<li>Deterministic</li>
+<li>Structured</li>
+<li>Async-safe</li>
+<li>Extensible</li>
+</ul>
+<p>It is intentionally <strong>boring and predictable</strong>, which is exactly what makes it powerful.</p>
+<hr />
+<h2 id="14-exit">14. Exit</h2>
+<ul>
+<li>Type <code>exit</code> or <code>quit</code> to terminate the session.</li>
+</ul></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../..';</script>
+        <script src="../../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../assets/js/mkdocs.js"></script>
+			<script src="../../search/main.js" defer></script>
+
+</body>
+
+</html>

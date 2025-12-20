@@ -1,8 +1,31 @@
 site_name: Mahendra Pawar Agents Documentation
 theme:
-  name: rtd-dropdown
+  name: dracula
+  features:
+    - navigation.tabs
+    - navigation.expand
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
 nav:
-  - Getting Started: index.md
-  - Agents:
-    - Agent Overview: agent_overview/index.md
-  - Prompt Template: prompt_template.md
+  - Home: index.md
+  - User Guide:
+    - Getting Started: user-guide/getting-started.md
+    - Stateless Agent: user-guide/stateless-agent.md
+    - Summarizer Agent: user-guide/summarizer-agent.md
+  - API Reference:
+    - Stateless Agent: api-reference/stateless-agent.md
+    - Summarizer Agent: api-reference/summarizer-agent.md
+    - Core Modules: api-reference/core-modules.md
