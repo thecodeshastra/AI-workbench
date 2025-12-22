@@ -215,44 +215,237 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><h1 id="summarizer-agent-guide">Summarizer Agent Guide</h1>
-<p>The <strong>Summarizer Agent</strong> is a more sophisticated agent capable of <strong>planning</strong> and <strong>executing</strong> multi-step tasks. It is specifically designed to handle long content summarization and file writing operations.</p>
-<h2 id="architecture">Architecture</h2>
-<p>The agent operates in two main phases:</p>
-<ol>
-<li><strong>Planning Phase</strong>: The <code>Planner</code> component analyzes the user request and breaks it down into a list of structured steps (e.g., "summarize text", "write to file").</li>
-<li><strong>Execution Phase</strong>: The agent iterates through the plan and executes each step using the appropriate tool.</li>
-</ol>
-<h2 id="available-tools">Available Tools</h2>
-<p>The Summarizer Agent has access to specific tools:</p>
-<ul>
-<li><strong><code>text_summarizer</code></strong>: Summarizes long text content using the LLM.</li>
-<li><strong><code>file_write</code></strong>: Writes content to a specific file path.</li>
-</ul>
-<h2 id="usage-example">Usage Example</h2>
-<p>To use the summarizer agent, run the provided CLI script:</p>
-<pre><code class="language-bash">python3 src/run_summarize_agent.py
-</code></pre>
-<p>The agent will start an interactive session where you can enter requests:</p>
-<pre><code>Summarizer Automation Agent (v2)
---------------------------------
-
-You: Summarize the README.md file and save it to summary.txt
-
-[Agent plans and executes the task]
-
-Agent completed successfully.
-
---- SUMMARY ---
-
-[Generated summary appears here]
-
-You: exit
-</code></pre>
+        <p><h1 id="summarizer-agent-architecture-execution-flow">Summarizer Agent — Architecture &amp; Execution Flow</h1>
+<p>This document explains <strong>how the Summarizer Agent works from start to end</strong>, why each component exists, and how data flows through the system. This is meant as <strong>internal documentation + learning reference</strong>, not marketing material.</p>
+<hr />
+<h2 id="1-what-the-summarizer-agent-does">1. What the Summarizer Agent Does</h2>
+<p><strong>One-line definition:</strong></p>
 <blockquote>
-<p>[!NOTE]
-The Summarizer Agent runs asynchronously and automatically plans multi-step workflows based on your request.</p>
-</blockquote></p>
+<p>The Summarizer Agent takes a user instruction involving a file, summarizes its contents, extracts actionable items, and saves the results using a structured, reliable execution flow.</p>
+</blockquote>
+<p>It demonstrates:</p>
+<ul>
+<li>Tool usage</li>
+<li>Planner–Executor architecture</li>
+<li>Async-safe execution</li>
+<li>Deterministic, non-hallucinatory behavior</li>
+</ul>
+<hr />
+<h2 id="2-high-level-architecture">2. High-Level Architecture</h2>
+<pre><code>User Input
+   ↓
+Agent (Orchestrator)
+   ↓
+Planner (LLM → JSON plan)
+   ↓
+Plan Validation
+   ↓
+Executor
+   ↓
+Tools (File → Summarize → Extract → Write)
+   ↓
+Context (shared state)
+</code></pre>
+<p>Each component has <strong>one responsibility only</strong>.</p>
+<hr />
+<h2 id="3-entry-point-user-agent">3. Entry Point (User → Agent)</h2>
+<h3 id="example-user-input">Example User Input</h3>
+<pre><code>/home/user/meeting.txt , summarize it, extract action items, and save actions to /home/user/actions.txt
+</code></pre>
+<p>This is the <strong>only free-form input</strong> in the system. Everything else becomes structured.</p>
+<hr />
+<h2 id="4-agent-role-orchestration-only">4. Agent Role (Orchestration Only)</h2>
+<p>The agent:</p>
+<ul>
+<li>Builds the planner prompt</li>
+<li>Calls the LLM via a provider</li>
+<li>Expects a strict JSON plan</li>
+<li>Validates the plan</li>
+<li>Passes the plan to the executor</li>
+</ul>
+<p>The agent:</p>
+<ul>
+<li>❌ does NOT summarize</li>
+<li>❌ does NOT call tools directly</li>
+<li>❌ does NOT reason about execution</li>
+</ul>
+<hr />
+<h2 id="5-planner-from-language-to-plan">5. Planner — From Language to Plan</h2>
+<h3 id="planner-responsibility">Planner Responsibility</h3>
+<blockquote>
+<p>Convert user intent into a <strong>deterministic execution plan</strong> using known tools.</p>
+</blockquote>
+<h3 id="example-planner-output">Example Planner Output</h3>
+<pre><code class="language-json">{
+  &quot;steps&quot;: [
+    { &quot;tool&quot;: &quot;file_read&quot;, &quot;input&quot;: { &quot;path&quot;: &quot;/home/user/meeting.txt&quot; } },
+    { &quot;tool&quot;: &quot;text_summarize&quot;, &quot;input&quot;: {} },
+    { &quot;tool&quot;: &quot;extract_actions&quot;, &quot;input&quot;: {} },
+    { &quot;tool&quot;: &quot;file_write&quot;, &quot;input&quot;: { &quot;path&quot;: &quot;/home/user/actions.txt&quot;, &quot;source&quot;: &quot;actions&quot; } }
+  ]
+}
+</code></pre>
+<p>The planner:</p>
+<ul>
+<li>Decides <strong>what to do</strong></li>
+<li>Does NOT execute anything</li>
+<li>Outputs JSON only</li>
+</ul>
+<hr />
+<h2 id="6-plan-validation-safety-gate">6. Plan Validation (Safety Gate)</h2>
+<p>Before execution:</p>
+<ul>
+<li>Ensure valid JSON</li>
+<li>Ensure <code>steps</code> exists</li>
+<li>Ensure tool names are registered</li>
+</ul>
+<p>If validation fails → execution stops immediately.</p>
+<p>This prevents hallucinated execution.</p>
+<hr />
+<h2 id="7-executor-turning-plan-into-action">7. Executor — Turning Plan into Action</h2>
+<p>The executor:</p>
+<ul>
+<li>Iterates over steps</li>
+<li>Calls tools in order</li>
+<li>Manages async execution</li>
+<li>Controls failures</li>
+<li>Writes and reads shared context</li>
+</ul>
+<p>The executor <strong>never reasons</strong> — it only executes.</p>
+<hr />
+<h2 id="8-context-shared-short-term-memory">8. Context — Shared Short-Term Memory</h2>
+<h3 id="what-context-is">What Context Is</h3>
+<p>A protected key–value store shared across tools during execution.</p>
+<h3 id="example-context-keys">Example Context Keys</h3>
+<ul>
+<li><code>text</code> → raw file contents</li>
+<li><code>summary</code> → summarized text</li>
+<li><code>actions</code> → extracted action items</li>
+</ul>
+<p>Context is async-safe and accessed via:</p>
+<pre><code class="language-python">await context.set(key, value)
+await context.get(key)
+</code></pre>
+<hr />
+<h2 id="9-tool-execution-step-by-step">9. Tool Execution (Step-by-Step)</h2>
+<h3 id="tool-1-file-read">Tool 1 — File Read</h3>
+<p><strong>Input:</strong></p>
+<pre><code class="language-json">{ &quot;path&quot;: &quot;/home/user/meeting.txt&quot; }
+</code></pre>
+<p><strong>Action:</strong></p>
+<ul>
+<li>Reads file</li>
+<li>Stores text in context</li>
+</ul>
+<hr />
+<h3 id="tool-2-text-summarize">Tool 2 — Text Summarize</h3>
+<p><strong>Input:</strong> none (reads from context)</p>
+<p><strong>Action:</strong></p>
+<ul>
+<li>Pulls <code>text</code> from context</li>
+<li>Calls LLM</li>
+<li>Stores <code>summary</code></li>
+</ul>
+<p>Why summarization first:</p>
+<ul>
+<li>Reduces token size</li>
+<li>Improves extraction accuracy</li>
+<li>Lowers cost</li>
+</ul>
+<hr />
+<h3 id="tool-3-extract-actions">Tool 3 — Extract Actions</h3>
+<p><strong>Input:</strong> none (uses summary)</p>
+<p><strong>Action:</strong></p>
+<ul>
+<li>Extracts actionable items</li>
+<li>Stores <code>actions</code></li>
+</ul>
+<p>This avoids noisy raw-text extraction.</p>
+<hr />
+<h3 id="tool-4-file-write">Tool 4 — File Write</h3>
+<p><strong>Input:</strong></p>
+<pre><code class="language-json">{ &quot;path&quot;: &quot;/home/user/actions.txt&quot;, &quot;source&quot;: &quot;actions&quot; }
+</code></pre>
+<p><strong>Action:</strong></p>
+<ul>
+<li>Pulls <code>actions</code> from context</li>
+<li>Writes to disk</li>
+</ul>
+<p>Tool does not know how actions were created.</p>
+<hr />
+<h2 id="10-async-execution-where-it-fits">10. Async Execution (Where It Fits)</h2>
+<p>Async is used for:</p>
+<ul>
+<li>LLM calls (summarization, extraction)</li>
+<li>Non-blocking execution</li>
+</ul>
+<p>Async is <strong>not</strong> used for:</p>
+<ul>
+<li>Planning</li>
+<li>Context logic</li>
+</ul>
+<p>Shared context is protected to prevent race conditions.</p>
+<hr />
+<h2 id="11-final-output">11. Final Output</h2>
+<p>After execution:</p>
+<ul>
+<li>Summary is printed to console</li>
+<li>Action items are printed</li>
+<li>Actions file is saved</li>
+</ul>
+<p>No post-hoc parsing or guessing is needed.</p>
+<hr />
+<h2 id="12-why-this-design-is-correct">12. Why This Design Is Correct</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent</td>
+<td>Orchestration</td>
+</tr>
+<tr>
+<td>Planner</td>
+<td>Decide steps</td>
+</tr>
+<tr>
+<td>Executor</td>
+<td>Run steps</td>
+</tr>
+<tr>
+<td>Tools</td>
+<td>Single task</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>Shared state</td>
+</tr>
+<tr>
+<td>Provider</td>
+<td>LLM communication</td>
+</tr>
+</tbody>
+</table>
+<p>No component overlaps responsibility.</p>
+<hr />
+<h2 id="13-summary">13. Summary</h2>
+<p>The Summarizer Agent is:</p>
+<ul>
+<li>Deterministic</li>
+<li>Structured</li>
+<li>Async-safe</li>
+<li>Extensible</li>
+</ul>
+<p>It is intentionally <strong>boring and predictable</strong>, which is exactly what makes it powerful.</p>
+<hr />
+<h2 id="14-exit">14. Exit</h2>
+<ul>
+<li>Type <code>exit</code> or <code>quit</code> to terminate the session.</li>
+</ul></p>
     </article>
 </section>
             <!-- endblock -->

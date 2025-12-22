@@ -249,6 +249,33 @@
    # Example .env
    GOOGLE_API_KEY=your_api_key_here</code></p>
 </li>
+<li>
+<p><strong>Currently supported Providers:</strong></p>
+</li>
+<li>Google Gemini</li>
+<li>OpenAI</li>
+<li>Claude (Anthropic)</li>
+<li>Ollama</li>
+<li>HuggingFace</li>
+<li>Perplexity</li>
+<li>
+<p>LiteLLM (Generic all providers)</p>
+</li>
+<li>
+<p><strong>Configuration:</strong></p>
+</li>
+<li>Edit <code>src/config/settings.py</code> to configure the LLM provider and other settings.</li>
+<li>Settings like.<ul>
+<li><code>MODEL_NAME</code></li>
+<li><code>PROVIDER</code></li>
+<li><code>TEMPERATURE</code></li>
+<li><code>MAX_TOKENS</code></li>
+<li><code>TIMEOUT_SECONDS</code></li>
+<li><code>MAX_RETRIES</code></li>
+<li><code>RETRY_BACKOFF</code></li>
+<li>etc...</li>
+</ul>
+</li>
 </ol>
 <h2 id="basic-usage">Basic Usage</h2>
 <h3 id="running-the-stateless-agent">Running the Stateless Agent</h3>

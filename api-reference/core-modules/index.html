@@ -216,6 +216,12 @@
                 <section class="p-md-5 section-content">
     <article>
         <p><h1 id="core-modules-api-reference">Core Modules API Reference</h1>
+<h2 id="config">config</h2>
+<h3 id="settings">Settings</h3>
+<p>::: src.config.settings.Settings
+    options:
+      show_root_heading: true
+      show_source: true</p>
 <h2 id="provider-factory">Provider Factory</h2>
 <p>The provider factory is responsible for initializing the appropriate LLM provider based on configuration settings.</p>
 <p>::: src.core.provider_factory.get_provider
@@ -271,6 +277,16 @@
       show_root_heading: true
       show_source: true</p>
 <h2 id="core-tools">Core Tools</h2>
+<h3 id="basetool">BaseTool</h3>
+<p>::: src.core.tools.base_tool.BaseTool
+    options:
+      show_root_heading: true
+      show_source: true</p>
+<h3 id="file-read">File Read</h3>
+<p>::: src.core.tools.file_read.FileRead
+    options:
+      show_root_heading: true
+      show_source: true</p>
 <h3 id="file-write">File Write</h3>
 <p>::: src.core.tools.file_write.FileWrite
     options:
@@ -278,6 +294,11 @@
       show_source: true</p>
 <h3 id="text-summarizer">Text Summarizer</h3>
 <p>::: src.core.tools.text_summarizer.TextSummarizer
+    options:
+      show_root_heading: true
+      show_source: true</p>
+<h3 id="extract-action-items">Extract Action Items</h3>
+<p>::: src.core.tools.extract_action_items.ExtractActionItems
     options:
       show_root_heading: true
       show_source: true</p>
