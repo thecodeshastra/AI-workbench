@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>Stateless Agent - Mahendra Pawar Agents Documentation</title>
+        <title>Virtual Assistant Agent - Mahendra Pawar Agents Documentation</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,7 +74,7 @@
             </li>
             <li class="drac-box">
                 <a href="../.."
-                    class=" active 
+                    class="
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#user-guide-collapse" aria-expanded="false">
                     User Guide
@@ -83,7 +83,7 @@
                     <ul class="mb-5 drac-list drac-list-none">
                             
     <li class="drac-box-ternary">
-        <a href="../getting-started/"
+        <a href="../../user-guide/getting-started/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Getting Started
@@ -91,8 +91,52 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="./"
-            class=" active 
+        <a href="../../user-guide/stateless-agent/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Stateless Agent
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../user-guide/summarizer-agent/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Summarizer Agent
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../user-guide/virtual-assistant-agent/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Virtual Assistant Agent
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class=" active 
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#api-reference-collapse" aria-expanded="false">
+                    API Reference
+                </a>
+                <div class="collapse" id="api-reference-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../core-modules/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Core Modules
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../stateless-agent/"
+            class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Stateless Agent
         </a>
@@ -107,52 +151,8 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../virtual-assistant-agent/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Virtual Assistant Agent
-        </a>
-    </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="drac-box">
-                <a href="../.."
-                    class="
-                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#api-reference-collapse" aria-expanded="false">
-                    API Reference
-                </a>
-                <div class="collapse" id="api-reference-collapse">
-                    <ul class="mb-5 drac-list drac-list-none">
-                            
-    <li class="drac-box-ternary">
-        <a href="../../api-reference/core-modules/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Core Modules
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../api-reference/stateless-agent/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Stateless Agent
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../api-reference/summarizer-agent/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Summarizer Agent
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../api-reference/virtual-assistant-agent/"
-            class="
+        <a href="./"
+            class=" active 
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Virtual Assistant Agent
         </a>
@@ -188,14 +188,14 @@
         <div class="container">
             <div class="row row-preview">
                 <div class="col">
-                    <a href="../getting-started/"
+                    <a href="../summarizer-agent/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </div>
                 <div class="col">
-                    <a href="../summarizer-agent/"
-                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                    <a 
+                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -231,172 +231,45 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><h1 id="stateless-agent-architecture-execution-flow">Stateless Agent — Architecture &amp; Execution Flow</h1>
-<p>This document explains <strong>how the Stateless Agent works end to end</strong>, what problems it is designed to solve, and why its simplicity is a strength. This serves as <strong>foundational documentation</strong> and a reference point for more advanced agents.</p>
-<hr />
-<h2 id="1-what-the-stateless-agent-does">1. What the Stateless Agent Does</h2>
-<p><strong>One-line definition:</strong></p>
-<blockquote>
-<p>The Stateless Agent takes a single user instruction and produces a single focused response using a well-defined prompt, without memory, tools, or multi-step execution.</p>
-</blockquote>
-<p>It demonstrates:</p>
-<ul>
-<li>Prompt engineering discipline</li>
-<li>Deterministic single-shot behavior</li>
-<li>LLM usage without orchestration overhead</li>
-</ul>
-<hr />
-<h2 id="2-why-stateless-agents-exist">2. Why Stateless Agents Exist</h2>
-<p>Stateless agents are the <strong>simplest and most reliable</strong> form of AI agents.</p>
-<p>They are ideal when:</p>
-<ul>
-<li>The task can be solved in one response</li>
-<li>No history or memory is required</li>
-<li>Predictability matters more than exploration</li>
-</ul>
-<p>Examples:</p>
-<ul>
-<li>Code generation</li>
-<li>Text rewriting</li>
-<li>Classification</li>
-<li>Explanation tasks</li>
-</ul>
-<hr />
-<h2 id="3-high-level-architecture">3. High-Level Architecture</h2>
-<pre><code>User Input
-   ↓
-Stateless Agent
-   ↓
-Prompt Template
-   ↓
-LLM Provider
-   ↓
-Single Output
-</code></pre>
-<p>There is <strong>no planner</strong>, <strong>no executor</strong>, <strong>no tools</strong>, and <strong>no memory</strong>.</p>
-<hr />
-<h2 id="4-entry-point-user-agent">4. Entry Point (User → Agent)</h2>
-<h3 id="example-user-input">Example User Input</h3>
-<pre><code>Write a Python function to check if a number is prime
-</code></pre>
-<p>This input is passed directly to the agent.</p>
-<hr />
-<h2 id="5-agent-role-single-responsibility">5. Agent Role (Single Responsibility)</h2>
-<p>The Stateless Agent:</p>
-<ul>
-<li>Accepts user input</li>
-<li>Injects it into a prompt template</li>
-<li>Calls the LLM once</li>
-<li>Returns the response</li>
-</ul>
-<p>The agent does NOT:</p>
-<ul>
-<li>Remember past inputs</li>
-<li>Call tools</li>
-<li>Plan steps</li>
-<li>Validate output</li>
-</ul>
-<p>This is intentional.</p>
-<hr />
-<h2 id="6-prompt-as-the-core-control-mechanism">6. Prompt as the Core Control Mechanism</h2>
-<p>In a stateless agent, <strong>the prompt is the system</strong>.</p>
-<p>Typical prompt structure:</p>
-<ul>
-<li>Role</li>
-<li>Context</li>
-<li>Instructions</li>
-<li>Task</li>
-<li>Constraints</li>
-<li>Output expectations</li>
-</ul>
-<p>This replaces planners, critics, and memory.</p>
-<hr />
-<h2 id="7-example-prompt-flow">7. Example Prompt Flow</h2>
-<h3 id="prompt-template-conceptual">Prompt Template (Conceptual)</h3>
-<pre><code>ROLE:
-You are a Python software engineer.
-
-INSTRUCTIONS:
-- Write a single function
-- Use clear variable names
-- Include docstrings
-
-TASK:
-{user_input}
-</code></pre>
-<p>The agent inserts user input and sends it to the LLM.</p>
-<hr />
-<h2 id="8-llm-provider-interaction">8. LLM Provider Interaction</h2>
-<p>The agent calls:</p>
-<ul>
-<li><code>provider.generate(prompt, system_prompt)</code></li>
-</ul>
-<p>Only one LLM call is made.</p>
-<p>No retries, no loops, no async complexity.</p>
-<hr />
-<h2 id="9-output-handling">9. Output Handling</h2>
-<p>The response from the LLM is:</p>
-<ul>
-<li>Returned directly to the user</li>
-<li>Not post-processed</li>
-<li>Not validated</li>
-</ul>
-<p>The assumption:</p>
-<blockquote>
-<p>Prompt quality determines output quality</p>
-</blockquote>
-<hr />
-<h2 id="10-why-this-design-is-correct">10. Why This Design Is Correct</h2>
-<table>
-<thead>
-<tr>
-<th>Aspect</th>
-<th>Reason</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>No memory</td>
-<td>Prevents drift</td>
-</tr>
-<tr>
-<td>No tools</td>
-<td>Reduces failure modes</td>
-</tr>
-<tr>
-<td>No planner</td>
-<td>Faster and cheaper</td>
-</tr>
-<tr>
-<td>Strong prompt</td>
-<td>High precision</td>
-</tr>
-</tbody>
-</table>
-<p>This agent is <strong>intentionally minimal</strong>.</p>
-<hr />
-<h2 id="11-relationship-to-other-agents">11. Relationship to Other Agents</h2>
-<p>The Stateless Agent is the <strong>root</strong> of your agent system:</p>
-<ul>
-<li>Summarizer Agent = Stateless + Tools + Planner</li>
-<li>Memoryful Agent = Summarizer + Memory + Critic</li>
-</ul>
-<p>Understanding this agent makes all others easier.</p>
-<hr />
-<h2 id="12-summary">12. Summary</h2>
-<p>The Stateless Agent is:</p>
-<ul>
-<li>Simple</li>
-<li>Predictable</li>
-<li>Cheap</li>
-<li>Powerful when scoped correctly</li>
-</ul>
-<p>It proves that <strong>good prompts + clear scope</strong> can outperform complex agents for many tasks.</p>
-<hr />
-<h2 id="13-exit">13. Exit</h2>
-<ul>
-<li>Type <code>exit</code> or <code>quit</code> to terminate the session.</li>
-</ul></p>
+        <p><h1 id="virtual-assistant-agent-api-reference">Virtual Assistant Agent API Reference</h1>
+<h2 id="virtual-assistant-agent">Virtual Assistant Agent</h2>
+<p>::: src.agents.virtual_assistant_agent.agent.VirtualAssistantAgent
+    options:
+      show_root_heading: true
+      show_source: true</p>
+<h2 id="planner">Planner</h2>
+<p>::: src.agents.virtual_assistant_agent.planner.Planner
+    options:
+      show_root_heading: true
+      show_source: true</p>
+<h2 id="executor">Executor</h2>
+<p>::: src.agents.virtual_assistant_agent.executor.Executor
+    options:
+      show_root_heading: true
+      show_source: true</p>
+<h2 id="critic">Critic</h2>
+<p>::: src.agents.virtual_assistant_agent.critic.Critic
+    options:
+      show_root_heading: true
+      show_source: true</p>
+<h2 id="memory-manager">Memory Manager</h2>
+<p>::: src.agents.virtual_assistant_agent.memory.memory_manager.MemoryManager
+    options:
+      show_root_heading: true
+      show_source: true</p>
+<h2 id="persona-loader">Persona Loader</h2>
+<p>::: src.agents.virtual_assistant_agent.persona_loader.PersonaLoader
+    options:
+      show_root_heading: true
+      show_source: true</p>
+<h2 id="common-utilities">Common Utilities</h2>
+<p>::: src.agents.virtual_assistant_agent.common
+    options:
+      show_root_heading: true</p>
+<h2 id="prompts">Prompts</h2>
+<p>::: src.agents.virtual_assistant_agent.prompt
+    options:
+      show_root_heading: true</p></p>
     </article>
 </section>
             <!-- endblock -->
