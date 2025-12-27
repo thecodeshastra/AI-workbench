@@ -1,0 +1,26 @@
+[
+  {
+    "id": "83bc10e3-9001-45d8-a2ff-d82c9b4e8374",
+    "timestamp": "2025-12-28T08:19:34.415158",
+    "category": "failure",
+    "content": "A persona must be initialized with a name to establish its identity and respond appropriately to direct inquiries about it."
+  },
+  {
+    "id": "2dff9d2c-5975-4e25-98d7-7c13bfc75e07",
+    "timestamp": "2025-12-28T08:19:34.415625",
+    "category": "lesson",
+    "content": "A persona must be initialized with a name to establish its identity and respond appropriately to direct inquiries about it."
+  },
+  {
+    "id": "894fc3f4-62bb-4378-9d26-c074d2943e4b",
+    "timestamp": "2025-12-28T08:20:37.903130",
+    "category": "failure",
+    "content": "An agent representing a person must possess and be able to articulate foundational information about that persona, especially when directly prompted with 'tell me about you.' Claiming ignorance about one's own identity is a critical failure in persona embodiment."
+  },
+  {
+    "id": "e20fc2b6-5b9d-4095-ac08-7c523453384a",
+    "timestamp": "2025-12-28T08:20:37.904626",
+    "category": "lesson",
+    "content": "An agent representing a person must possess and be able to articulate foundational information about that persona, especially when directly prompted with 'tell me about you.' Claiming ignorance about one's own identity is a critical failure in persona embodiment."
+  }
+]

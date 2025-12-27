@@ -16,6 +16,7 @@ class BaseTool(ABC):
     """
 
     name: str
+    description: str
 
     @abstractmethod
     def run(self, input: Dict[str, Any], context: Dict[str, Any]) -> Dict[str, Any]:

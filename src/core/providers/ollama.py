@@ -27,12 +27,13 @@ class OllamaProvider(BaseProvider):
         self.temperature = temperature
         self.url = "http://localhost:11434/api/generate"
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, system_prompt: str) -> str:
         """
         Generate a response using the Ollama provider.
 
         Args:
             prompt (str): The input prompt.
+            system_prompt (str): The system prompt.
 
         Returns:
             str: The generated response.
@@ -40,6 +41,7 @@ class OllamaProvider(BaseProvider):
         payload = {
             "model": self.model_name,
             "prompt": prompt,
+            "system": system_prompt,
             "stream": False,
             "options": {
                 "temperature": self.temperature,

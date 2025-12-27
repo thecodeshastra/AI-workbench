@@ -31,10 +31,11 @@ class GeminiProvider(BaseProvider):
         self.model = genai.GenerativeModel(model_name)
         self.temperature = temperature
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, system_prompt: str) -> str:
         response = self.model.generate_content(
             prompt,
             generation_config={
+                "system_instruction": system_prompt,
                 "temperature": self.temperature,
             },
         )

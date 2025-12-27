@@ -8,6 +8,7 @@ A reusable library of AI agents for various automation tasks. This workbench inc
 
 - **Stateless Agent**: Lightweight, one-shot request/response agent for quick queries and code generation
 - **Summarizer Agent**: Advanced planning and execution agent with async support for complex tasks
+- **Virtual Assistant Agent**: Persona-based chatbot that learns over time and maintains memory via a critic-led cycle
 - **Multi-Provider Support**: Works with Gemini, OpenAI, Anthropic, LiteLLM, Ollama, Perplexity, HuggingFace, and more
 - **Extensible Architecture**: Easy to add new agents and tools
 

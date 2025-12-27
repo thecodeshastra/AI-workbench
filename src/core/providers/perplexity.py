@@ -30,19 +30,23 @@ class PerplexityProvider(BaseProvider):
         self.model = model_name
         self.temperature = temperature
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, system_prompt: str) -> str:
         """
         Generate a response using the Perplexity provider.
 
         Args:
             prompt (str): The input prompt.
+            system_prompt (str): The system prompt.
 
         Returns:
             str: The generated response.
         """
         response = self.client.chat.completions.create(
             model=self.model,
-            messages=[{"role": "user", "content": prompt}],
+            messages=[
+                {"role": "user", "content": prompt},
+                {"role": "system", "content": system_prompt},
+            ],
             temperature=self.temperature,
         )
         return response.choices[0].message.content

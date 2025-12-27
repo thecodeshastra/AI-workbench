@@ -30,18 +30,22 @@ class HuggingFaceProvider(BaseProvider):
         self.temperature = temperature
         self.max_tokens = max_tokens
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, system_prompt: str) -> str:
         """
         Generate a response using the Hugging Face provider.
 
         Args:
             prompt (str): The input prompt.
+            system_prompt (str): The system prompt.
 
         Returns:
             str: The generated response.
         """
         response = self.client.chat_completion(
-            messages=[{"role": "user", "content": prompt}],
+            messages=[
+                {"role": "user", "content": prompt},
+                {"role": "system", "content": system_prompt},
+            ],
             max_tokens=self.max_tokens,
             temperature=self.temperature,
         )
@@ -69,18 +73,23 @@ class HuggingFaceTextGenerationProvider(BaseProvider):
         self.temperature = temperature
         self.max_tokens = max_tokens
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, system_prompt: str) -> str:
         """
         Generate a response using the Hugging Face Text Generation provider.
 
         Args:
             prompt (str): The input prompt.
+            system_prompt (str): The system prompt.
 
         Returns:
             str: The generated response.
         """
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": prompt},
+        ]
         response = self.client.text_generation(
-            prompt=prompt,
+            messages=messages,
             max_new_tokens=self.max_tokens,
             temperature=self.temperature,
         )

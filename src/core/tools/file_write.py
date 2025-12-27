@@ -20,6 +20,7 @@ class FileWriteTool(BaseTool):
     """
 
     name = "file_write"
+    description = "Write text content to a file."
 
     def run(self, input: Dict[str, Any], context: Dict[str, Any]) -> Dict[str, Any]:
         """

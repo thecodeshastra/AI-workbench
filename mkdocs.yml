@@ -6,18 +6,9 @@ theme:
     - navigation.expand
     - content.code.copy
   palette:
-    - scheme: default
-      primary: indigo
-      accent: purple
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
     - scheme: slate
       primary: indigo
       accent: purple
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
 
 nav:
   - Home: index.md
@@ -25,7 +16,9 @@ nav:
     - Getting Started: user-guide/getting-started.md
     - Stateless Agent: user-guide/stateless-agent.md
     - Summarizer Agent: user-guide/summarizer-agent.md
+    - Virtual Assistant Agent: user-guide/virtual-assistant-agent.md
   - API Reference:
+    - Core Modules: api-reference/core-modules.md
     - Stateless Agent: api-reference/stateless-agent.md
     - Summarizer Agent: api-reference/summarizer-agent.md
-    - Core Modules: api-reference/core-modules.md
+    - Virtual Assistant Agent: api-reference/virtual-assistant-agent.md

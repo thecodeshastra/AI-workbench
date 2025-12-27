@@ -23,14 +23,6 @@
 
 ## Prompt
 
-::: src.agents.summarizer_agent.prompt.Prompt
+::: src.agents.summarizer_agent.prompt
     options:
       show_root_heading: true
-      show_source: true
-
-## Run Summarizer Agent
-
-::: src.run_summarizer_agent.main
-    options:
-      show_root_heading: true
-      show_source: true

@@ -5,6 +5,7 @@ from interfaces.base_provider import BaseProvider
 
 # core module
 from core.utils.logger import logger
+from core.prompts.base_prompt import build_persona_system_prompt
 
 # stateless agent module
 from .prompt import AGENT_PROMPT
@@ -55,9 +56,10 @@ USER REQUEST:
         logger.info(f"User input length: {len(user_input)}")
 
         prompt = self._build_prompt(user_input)
+        system_prompt = build_persona_system_prompt("stateless_agent")
         logger.info(f"Prompt length: {len(prompt)}")
 
-        output = self.provider.generate(prompt)
+        output = self.provider.generate(prompt, system_prompt)
 
         logger.info(f"Output length: {len(output)}")
         logger.info("Agent run finished")

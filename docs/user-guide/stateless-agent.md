@@ -129,7 +129,7 @@ The agent inserts user input and sends it to the LLM.
 
 The agent calls:
 
-* `provider.generate(prompt)`
+* `provider.generate(prompt, system_prompt)`
 
 Only one LLM call is made.
 

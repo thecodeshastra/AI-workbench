@@ -31,12 +31,13 @@ class OpenAIProvider(BaseProvider):
         self.temperature = temperature
         self.max_tokens = max_tokens
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, system_prompt: str) -> str:
         """
         Generate a response using the OpenAI provider.
 
         Args:
             prompt (str): The input prompt.
+            system_prompt (str): The system prompt.
 
         Returns:
             str: The generated response.
@@ -44,6 +45,7 @@ class OpenAIProvider(BaseProvider):
         response = self.client.responses.create(
             model=self.model,
             input=prompt,
+            instructions=system_prompt,
             temperature=self.temperature,
             max_output_tokens=self.max_tokens,
         )
