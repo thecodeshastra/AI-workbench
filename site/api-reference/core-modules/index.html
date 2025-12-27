@@ -105,6 +105,14 @@
             Summarizer Agent
         </a>
     </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../user-guide/virtual-assistant-agent/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Virtual Assistant Agent
+        </a>
+    </li>
                     </ul>
                 </div>
             </li>
@@ -117,6 +125,14 @@
                 </a>
                 <div class="collapse" id="api-reference-collapse">
                     <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Core Modules
+        </a>
+    </li>
                             
     <li class="drac-box-ternary">
         <a href="../stateless-agent/"
@@ -135,10 +151,10 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="./"
-            class=" active 
+        <a href="../virtual-assistant-agent/"
+            class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Core Modules
+            Virtual Assistant Agent
         </a>
     </li>
                     </ul>
@@ -172,14 +188,14 @@
         <div class="container">
             <div class="row row-preview">
                 <div class="col">
-                    <a href="../summarizer-agent/"
+                    <a href="../../user-guide/virtual-assistant-agent/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </div>
                 <div class="col">
-                    <a 
-                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
+                    <a href="../stateless-agent/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -216,103 +232,79 @@
                 <section class="p-md-5 section-content">
     <article>
         <p><h1 id="core-modules-api-reference">Core Modules API Reference</h1>
-<h2 id="config">config</h2>
-<h3 id="settings">Settings</h3>
-<p>::: src.config.settings.Settings
-    options:
-      show_root_heading: true
-      show_source: true</p>
 <h2 id="provider-factory">Provider Factory</h2>
-<p>The provider factory is responsible for initializing the appropriate LLM provider based on configuration settings.</p>
-<p>::: src.core.provider_factory.get_provider
+<p>::: src.core.provider_factory
     options:
       show_root_heading: true
       show_source: true</p>
 <h2 id="base-provider-interface">Base Provider Interface</h2>
-<p>All LLM providers implement this base interface:</p>
 <p>::: src.interfaces.base_provider.BaseProvider
     options:
       show_root_heading: true
       show_source: true</p>
 <h2 id="supported-providers">Supported Providers</h2>
-<p>The workbench supports multiple LLM providers:</p>
-<h3 id="gemini-provider">Gemini Provider</h3>
 <p>::: src.core.providers.gemini.GeminiProvider
     options:
       show_root_heading: true
       show_source: true</p>
-<h3 id="openai-provider">OpenAI Provider</h3>
 <p>::: src.core.providers.openai.OpenAIProvider
     options:
       show_root_heading: true
       show_source: true</p>
-<h3 id="anthropic-provider">Anthropic Provider</h3>
 <p>::: src.core.providers.anthropic.AnthropicProvider
     options:
       show_root_heading: true
       show_source: true</p>
-<h3 id="litellm-provider">LiteLLM Provider</h3>
 <p>::: src.core.providers.litellm.LiteLLMProvider
     options:
       show_root_heading: true
       show_source: true</p>
-<h3 id="ollama-provider">Ollama Provider</h3>
 <p>::: src.core.providers.ollama.OllamaProvider
     options:
       show_root_heading: true
       show_source: true</p>
-<h3 id="perplexity-provider">Perplexity Provider</h3>
 <p>::: src.core.providers.perplexity.PerplexityProvider
     options:
       show_root_heading: true
       show_source: true</p>
-<h3 id="huggingface-provider">HuggingFace Provider</h3>
 <p>::: src.core.providers.huggingface.HuggingFaceProvider
     options:
       show_root_heading: true
       show_source: true</p>
-<h3 id="mock-provider">Mock Provider</h3>
 <p>::: src.core.providers.mock_provider.MockProvider
     options:
       show_root_heading: true
       show_source: true</p>
 <h2 id="core-tools">Core Tools</h2>
-<h3 id="basetool">BaseTool</h3>
-<p>::: src.core.tools.base_tool.BaseTool
-    options:
-      show_root_heading: true
-      show_source: true</p>
-<h3 id="file-read">File Read</h3>
-<p>::: src.core.tools.file_read.FileRead
-    options:
-      show_root_heading: true
-      show_source: true</p>
-<h3 id="file-write">File Write</h3>
 <p>::: src.core.tools.file_write.FileWrite
     options:
       show_root_heading: true
       show_source: true</p>
-<h3 id="text-summarizer">Text Summarizer</h3>
 <p>::: src.core.tools.text_summarizer.TextSummarizer
     options:
       show_root_heading: true
       show_source: true</p>
-<h3 id="extract-action-items">Extract Action Items</h3>
-<p>::: src.core.tools.extract_action_items.ExtractActionItems
+<p>::: src.core.tools.extract_action.ExtractAction
     options:
       show_root_heading: true
       show_source: true</p>
-<h2 id="prompts">Prompts</h2>
-<h3 id="text-summarizer-prompt">Text Summarizer Prompt</h3>
-<p>::: src.core.prompts.text_summarizer.SUMMARIZER_PROMPT
+<h2 id="prompt-modules">Prompt Modules</h2>
+<p>::: src.core.prompts.base_persona
     options:
-      show_root_heading: true
-      show_source: true</p>
-<h3 id="extract-action-prompt">Extract Action Prompt</h3>
-<p>::: src.core.prompts.extract_action.EXTRACT_ACTION_PROMPT
+      show_root_heading: true</p>
+<p>::: src.core.prompts.text_summarizer
     options:
-      show_root_heading: true
-      show_source: true</p></p>
+      show_root_heading: true</p>
+<p>::: src.core.prompts.extract_action
+    options:
+      show_root_heading: true</p>
+<h2 id="utilities">Utilities</h2>
+<p>::: src.core.utils.logger
+    options:
+      show_root_heading: true</p>
+<p>::: src.core.utils.context
+    options:
+      show_root_heading: true</p></p>
     </article>
 </section>
             <!-- endblock -->

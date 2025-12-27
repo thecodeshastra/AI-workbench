@@ -6,3 +6,5 @@ anthropic
 huggingface_hub
 litellm
 mkdocs-dracula-theme
+pdfplumber
+gradio

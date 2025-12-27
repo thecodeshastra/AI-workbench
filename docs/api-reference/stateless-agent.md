@@ -1,19 +1,14 @@
 # Stateless Agent API Reference
 
-## Base Agent
+## Stateless Agent
+
 ::: src.agents.stateless_agent.base_agent.StatelessAgent
     options:
       show_root_heading: true
       show_source: true
 
-## Prompt
-::: src.agents.stateless_agent.prompt.Prompt
-    options:
-      show_root_heading: true
-      show_source: true
+## Prompt Template
 
-## Run Stateless Agent
-::: src.run_stateless_agent.main
+::: src.agents.stateless_agent.prompt
     options:
       show_root_heading: true
-      show_source: true

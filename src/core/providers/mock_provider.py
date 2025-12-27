@@ -12,12 +12,13 @@ class MockProvider(BaseProvider):
         BaseProvider (BaseProvider): Base provider class.
     """
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, system_prompt: str) -> str:
         """
         Generate a response using the Mock provider.
 
         Args:
             prompt (str): The input prompt.
+            system_prompt (str): The system prompt.
 
         Returns:
             str: The generated response.
@@ -27,4 +28,6 @@ class MockProvider(BaseProvider):
             "This is a mock provider output.\n\n"
             "Prompt received:\n"
             f"{prompt[:300]}..."
+            "System prompt received:\n"
+            f"{system_prompt[:300]}..."
         )

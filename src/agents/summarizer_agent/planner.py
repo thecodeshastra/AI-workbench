@@ -9,6 +9,7 @@ from interfaces.base_provider import BaseProvider
 
 # core module
 from core.utils.logger import logger
+from core.prompts.base_prompt import build_persona_system_prompt
 
 # summarizer agent module
 from agents.summarizer_agent.prompt import PLANNER_PROMPT
@@ -49,8 +50,8 @@ class Planner:
 USER REQUEST:
 {user_request}
 """
-
-        raw_output = self.provider.generate(prompt)
+        system_prompt = build_persona_system_prompt("Expert agent planner")
+        raw_output = self.provider.generate(prompt, system_prompt)
         logger.info("Planner raw output received")
         cleaned_output = raw_output.strip()
 

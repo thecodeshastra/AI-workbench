@@ -10,6 +10,7 @@ from interfaces.base_provider import BaseProvider
 # core module
 from core.utils.logger import logger
 from core.prompts.extract_action import ACTION_EXTRACTION_PROMPT
+from core.prompts.base_persona import build_persona_system_prompt
 
 
 class ExtractActionsTool(BaseTool):
@@ -21,6 +22,7 @@ class ExtractActionsTool(BaseTool):
     """
 
     name = "extract_actions"
+    description = "Extract action items from a summary."
 
     def __init__(self, provider: BaseProvider):
         """
@@ -70,7 +72,8 @@ SUMMARY:
 {summary}
 """
 
-        actions_text = await self.provider.generate_async(final_prompt)
+        system_prompt = build_persona_system_prompt("Expert action extractor")
+        actions_text = await self.provider.generate_async(final_prompt, system_prompt)
 
         # Store for downstream tools
         await context.set("actions", actions_text)

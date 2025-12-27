@@ -51,12 +51,13 @@ class LiteLLMProvider(BaseProvider):
         self.max_retries = max_retries
         self.backoff = backoff
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, system_prompt: str) -> str:
         """
         Generate a response using the LLM.
 
         Args:
             prompt (str): The input prompt.
+            system_prompt (str): The system prompt.
 
         Returns:
             str: The generated response.
@@ -70,7 +71,10 @@ class LiteLLMProvider(BaseProvider):
 
                 response = completion(
                     model=self.model,
-                    messages=[{"role": "user", "content": prompt}],
+                    messages=[
+                        {"role": "user", "content": prompt},
+                        {"role": "system", "content": system_prompt},
+                    ],
                     temperature=self.temperature,
                     max_tokens=self.max_tokens,
                     timeout=self.timeout,
@@ -89,7 +93,7 @@ class LiteLLMProvider(BaseProvider):
 
                 time.sleep(self.backoff**attempt)
 
-    async def generate_async(self, prompt: str) -> str:
+    async def generate_async(self, prompt: str, system_prompt: str) -> str:
         """
         Generate a response using the LLM asynchronously.
 
@@ -110,12 +114,15 @@ class LiteLLMProvider(BaseProvider):
 
                 response = await acompletion(
                     model=self.model,
-                    messages=[{"role": "user", "content": prompt}],
+                    messages=[
+                        {"role": "user", "content": prompt},
+                        {"role": "system", "content": system_prompt},
+                    ],
                     temperature=self.temperature,
                     max_tokens=self.max_tokens,
                     timeout=self.timeout,
                 )
-
+                print(response)
                 latency = round(time.time() - start, 2)
                 logger.info(f"LLM success | latency={latency}s")
 

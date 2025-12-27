@@ -10,6 +10,7 @@ from interfaces.base_provider import BaseProvider
 # core module
 from core.utils.logger import logger
 from core.prompts.text_summarizer import ADVANCED_SUMMARIZATION_PROMPT
+from core.prompts.base_persona import build_persona_system_prompt
 
 
 class TextSummarizeTool(BaseTool):
@@ -21,6 +22,7 @@ class TextSummarizeTool(BaseTool):
     """
 
     name = "text_summarize"
+    description = "Summarize text using an LLM."
 
     def __init__(self, provider: BaseProvider):
         """
@@ -69,8 +71,8 @@ class TextSummarizeTool(BaseTool):
 SOURCE CONTENT:
 {source_text}
 """
-
-        summary = await self.provider.generate_async(final_prompt)
+        system_prompt = build_persona_system_prompt("Expert text summarizer")
+        summary = await self.provider.generate_async(final_prompt, system_prompt)
 
         # Store for downstream tools
         await context.set("summary", summary)

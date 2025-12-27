@@ -20,6 +20,7 @@ class FileReadTool(BaseTool):
     """
 
     name = "file_read"
+    description = "Read text content from a file."
 
     def run(self, input: Dict[str, Any], context: Dict[str, Any]) -> Dict[str, Any]:
         """
